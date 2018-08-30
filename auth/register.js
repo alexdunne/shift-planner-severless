@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const uuid = require("uuid");
 
 const SafeError = require("../error/SafeError");
@@ -22,5 +23,10 @@ module.exports = async event => {
 
   await userRepository.create(newUser);
 
-  return newUser;
+  return {
+    apiKey: jwt.sign(
+      { id: newUser.ID, email: newUser.email },
+      process.env.JWT_SECRET
+    )
+  };
 };

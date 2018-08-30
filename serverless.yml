@@ -16,6 +16,8 @@ provider:
 functions:
   register:
     handler: handler.register
+    environment:
+      JWT_SECRET: ${file(./serverless.env.yml):JWT_SECRET}
     events:
       - http:
           path: auth/register
