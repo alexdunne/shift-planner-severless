@@ -14,8 +14,12 @@ provider:
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
 functions:
-  hello:
-    handler: handler.hello
+  register:
+    handler: handler.register
+    events:
+      - http:
+          path: auth/register
+          method: post
 
 resources:
   Resources:

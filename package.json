@@ -1,0 +1,12 @@
+{
+  "name": "shift-planner-serverless",
+  "version": "0.0.1",
+  "main": "handler.js",
+  "author": "Alex Dunne <hi@alexdunne.net>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.306.0",
+    "bcrypt": "^3.0.0",
+    "uuid": "^3.3.2"
+  }
+}
