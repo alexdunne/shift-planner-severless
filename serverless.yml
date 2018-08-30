@@ -23,6 +23,15 @@ functions:
           path: auth/register
           method: post
 
+  login:
+    handler: handler.login
+    environment:
+      JWT_SECRET: ${file(./serverless.env.yml):JWT_SECRET}
+    events:
+      - http:
+          path: auth/login
+          method: post
+
 resources:
   Resources:
     UsersTable:
